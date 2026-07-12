@@ -1,5 +1,7 @@
 #include "timerwindow.h"
 
-timerwindow::timerwindow(QObject *parent)
-    : QObject{parent}
-{}
+TimerWindow::TimerWindow(QWidget *parent)
+    : QWidget(parent)
+{
+
+}
