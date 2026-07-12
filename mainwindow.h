@@ -17,6 +17,13 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+signals:
+    // void tomatoStarted();
+
+private slots:
+    void on_startBtn_clicked();
+    void showMainWindow();
+
 private:
     Ui::MainWindow *ui;
 };

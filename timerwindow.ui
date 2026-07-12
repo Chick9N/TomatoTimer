@@ -1,38 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>Form</class>
- <widget class="QWidget" name="Form">
+ <class>TimerWindow</class>
+ <widget class="QWidget" name="TimerWindow">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>192</width>
+    <width>202</width>
     <height>161</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string>番茄钟</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
-   <item>
-    <widget class="QLabel" name="titleLabel">
-     <property name="sizePolicy">
-      <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
-       <horstretch>0</horstretch>
-       <verstretch>0</verstretch>
-      </sizepolicy>
-     </property>
-     <property name="text">
-      <string>番茄钟</string>
-     </property>
-     <property name="textFormat">
-      <enum>Qt::TextFormat::AutoText</enum>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignmentFlag::AlignHCenter|Qt::AlignmentFlag::AlignTop</set>
-     </property>
-    </widget>
-   </item>
    <item>
     <widget class="QWidget" name="statusContainer" native="true">
      <property name="sizePolicy">
@@ -43,7 +24,7 @@
      </property>
      <layout class="QVBoxLayout" name="verticalLayout_2">
       <item>
-       <widget class="QLabel" name="timeLeftBtn">
+       <widget class="QLabel" name="timeLeftLabel">
         <property name="text">
          <string>倒计时</string>
         </property>
@@ -53,7 +34,7 @@
        </widget>
       </item>
       <item>
-       <widget class="QLabel" name="stageBtn">
+       <widget class="QLabel" name="stageLabel">
         <property name="text">
          <string>状态</string>
         </property>
@@ -63,7 +44,7 @@
        </widget>
       </item>
       <item>
-       <widget class="QLabel" name="roundBtn">
+       <widget class="QLabel" name="roundLabel">
         <property name="text">
          <string>循环轮数</string>
         </property>
@@ -87,7 +68,7 @@
       <item>
        <widget class="QPushButton" name="pauseBtn">
         <property name="text">
-         <string>暂停</string>
+         <string>开始</string>
         </property>
        </widget>
       </item>
