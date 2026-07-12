@@ -23,6 +23,9 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
     qt_add_executable(TomatoTimer
         MANUAL_FINALIZATION
         ${PROJECT_SOURCES}
+        timerwindow.ui
+        timerwindow.h timerwindow.cpp
+        timerwindow.h timerwindow.cpp
     )
 # Define target properties for Android with Qt 6 as:
 #    set_property(TARGET TomatoTimer APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR
