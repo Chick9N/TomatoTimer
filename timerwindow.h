@@ -3,6 +3,7 @@
 
 #include <QTimer>
 #include <QWidget>
+#include <QSoundEffect>
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -24,6 +25,7 @@ public:
     void updateDisplay();
     void initDisplay();
     void finishTimer();
+    void playSound(const QString &path);
 signals:
     void timerStopped();
 
@@ -33,6 +35,7 @@ private slots:
 
 private:
     Ui::TimerWindow *ui;
+    QSoundEffect  *m_soundPlayer;
     QTimer *m_timer;
     int m_remainingSec;
     int m_workMinutes;

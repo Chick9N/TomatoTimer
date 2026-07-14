@@ -6,12 +6,16 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>202</width>
+    <width>206</width>
     <height>161</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>番茄钟</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="sound.qrc">
+    <normaloff>:/icon</normaloff>:/icon</iconset>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
@@ -84,6 +88,8 @@
    </item>
   </layout>
  </widget>
- <resources/>
+ <resources>
+  <include location="sound.qrc"/>
+ </resources>
  <connections/>
 </ui>

@@ -1,6 +1,7 @@
 #include "timerwindow.h"
 #include "./ui_timerwindow.h"
 #include "QDebug"
+#include <QSoundEffect>
 
 TimerWindow::TimerWindow(QWidget *parent)
     : QWidget(parent)
@@ -8,6 +9,13 @@ TimerWindow::TimerWindow(QWidget *parent)
     , m_timer(new QTimer(this))
 {
     ui->setupUi(this);
+
+    setWindowFlag(Qt::WindowStaysOnTopHint);
+
+    // 播放器相关
+    m_soundPlayer = new QSoundEffect (this);
+    m_soundPlayer->setVolume(0.5);
+
     connect(m_timer,
             &QTimer::timeout,
             this,
@@ -76,6 +84,8 @@ void TimerWindow::on_pauseBtn_clicked()
     {
         m_timer->start(1000);
         qDebug()<<"倒计时开始";
+        if(m_isWorking) playSound("qrc:/work");
+        if(!m_isWorking) playSound("qrc:/relax");
         ui->pauseBtn->setText("暂停");
     }
 }
@@ -93,6 +103,8 @@ void TimerWindow::updateTime()
         {
             // 工作结束
 
+            playSound("qrc:/relax");
+
             m_isWorking = false;
 
             m_remainingSec = m_relaxMinutes * 60;
@@ -105,12 +117,15 @@ void TimerWindow::updateTime()
         {
             // 休息结束
 
+            playSound("qrc:/work");
+
             m_isWorking = true;
 
             m_curRound++;
 
             if(m_curRound > m_cycleRounds)
             {
+                playSound("qrc:/finish");
                 finishTimer();
                 return;
             }
@@ -136,6 +151,13 @@ void TimerWindow::updateTimeLabel()
             .arg(minutes,2,10,QChar('0'))
             .arg(seconds,2,10,QChar('0'))
         );
+}
+
+void TimerWindow::playSound(const QString &path)
+{
+    qDebug() << "播放" << path;
+    m_soundPlayer->setSource(QUrl(path));
+    m_soundPlayer->play();
 }
 
 void TimerWindow::finishTimer()

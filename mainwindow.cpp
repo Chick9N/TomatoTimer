@@ -22,7 +22,7 @@ void MainWindow::on_startBtn_clicked()
 
     // 信号槽连接
     // 计时结束，显示主窗口
-    connect(tw, &TimerWindow::timerStopped, this, &MainWindow::showMainWindow);
+    connect(tw, &TimerWindow::timerStopped, this, &MainWindow::show);
     // 计时结束，释放资源
     tw->setAttribute(Qt::WA_DeleteOnClose);
     connect(tw, &TimerWindow::timerStopped, tw, &TimerWindow::close);
@@ -36,8 +36,4 @@ void MainWindow::on_startBtn_clicked()
     this->hide();
 }
 
-void MainWindow::showMainWindow()
-{
-    show();
-}
 

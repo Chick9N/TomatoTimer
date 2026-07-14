@@ -22,7 +22,6 @@ signals:
 
 private slots:
     void on_startBtn_clicked();
-    void showMainWindow();
 
 private:
     Ui::MainWindow *ui;

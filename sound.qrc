@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/">
+        <file alias="finish">sound/finish.wav</file>
+        <file alias="relax">sound/relaxtime.wav</file>
+        <file alias="work">sound/workstart.wav</file>
+        <file alias="icon">pic/tomato.png</file>
+    </qresource>
+</RCC>
