@@ -16,6 +16,7 @@ TimerWindow::TimerWindow(QWidget *parent)
     // 窗口置顶
     setWindowFlag(Qt::WindowStaysOnTopHint);
 
+    ui->restartBtn->setEnabled(false);
 
     // 音效
     m_soundPlayer = new QSoundEffect(this);
@@ -220,6 +221,7 @@ void TimerWindow::updateTime()
 
                 playSound("qrc:/finish");
 
+                ui->restartBtn->setEnabled(false);
 
                 finishTimer();
 
@@ -329,3 +331,15 @@ void TimerWindow::finishTimer()
     ui->pauseBtn->setEnabled(false);
 
 }
+
+void TimerWindow::on_restartBtn_clicked()
+{
+    m_timer->stop();
+
+    initDisplay();
+
+    ui->pauseBtn->setEnabled(true);
+
+    qDebug()<<"重新开始一组";
+}
+

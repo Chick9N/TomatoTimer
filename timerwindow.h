@@ -32,6 +32,8 @@ private slots:
     void on_pauseBtn_clicked();
     void updateTime();
 
+    void on_restartBtn_clicked();
+
 private:
     Ui::TimerWindow *ui;
     QSoundEffect  *m_soundPlayer;
