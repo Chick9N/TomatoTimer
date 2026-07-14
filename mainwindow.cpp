@@ -31,7 +31,7 @@ void MainWindow::on_startBtn_clicked()
     tw->setWorkMinutes(ui->workTimeInput->value());
     tw->setRelaxMinutes(ui->relaxTimeInput->value());
     tw->setCycleRounds(ui->loopInput->value());
-
+    tw->initDisplay();
     tw->show();
     this->hide();
 }

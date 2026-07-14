@@ -22,29 +22,30 @@ public:
     void setWorkMinutes(int min);
     void setRelaxMinutes(int min);
     void setCycleRounds(int count);
-    void updateDisplay();
     void initDisplay();
-    void finishTimer();
-    void playSound(const QString &path);
+
 signals:
     void timerStopped();
 
 private slots:
     void on_stopBtn_clicked();
     void on_pauseBtn_clicked();
+    void updateTime();
 
 private:
     Ui::TimerWindow *ui;
     QSoundEffect  *m_soundPlayer;
     QTimer *m_timer;
-    int m_remainingSec;
-    int m_workMinutes;
-    int m_relaxMinutes;
-    int m_cycleRounds;
+    int m_remainingSec = 0;
+    int m_workMinutes = 25;
+    int m_relaxMinutes = 5;
+    int m_cycleRounds = 4;
     int m_curRound = 1;
     bool m_isWorking = true;   // 工作状态标记
-    void updateTime();
+    bool m_started = false;    // 是否开始计时
     void updateTimeLabel();
+    void finishTimer();
+    void playSound(const QString &path);
 };
 
 #endif // TIMERWINDOW_H
